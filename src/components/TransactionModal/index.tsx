@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import Image from "next/image";
+
 
 export function TransactionModal({ onClose }: { onClose: () => void }) {
   const [type, setType] = useState<'income' | 'outcome'>('income');
 
   return (
-    <div className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white w-full max-w-md p-8 rounded-lg relative">
         {}
         <button
@@ -38,7 +40,8 @@ export function TransactionModal({ onClose }: { onClose: () => void }) {
                 type === 'income' ? 'bg-green-100 border-green-500' : 'border-gray-300'
               }`}
             >
-              ✅ Entrada
+              <Image src="/income.png" alt="Entrada" width={20} height={20} />
+              Entrada
             </button>
 
             <button
@@ -48,9 +51,11 @@ export function TransactionModal({ onClose }: { onClose: () => void }) {
                 type === 'outcome' ? 'bg-red-100 border-red-500' : 'border-gray-300'
               }`}
             >
-              ❌ Saída
+              <Image src="/outcome.png" alt="Saída" width={20} height={20} />
+              Saída
             </button>
           </div>
+
 
           <input
             type="text"
