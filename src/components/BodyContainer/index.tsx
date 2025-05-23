@@ -1,10 +1,12 @@
-export interface IBodyContainerProps {
-    children: React.ReactNode;
-}
-export function BodyContainer({ children }: IBodyContainerProps) {
+import React from 'react';
+import { Summary } from '../Summary';
+import { TransactionsTable } from '../TransactionsTable';
+
+export function BodyContainer() {
   return (
-    <div className="mx-auto max-w-[1120px] -mt-16">
-        {children}
-    </div>
-  )
+    <main className="max-w-6xl mx-auto mt-[-5rem]">
+      <Summary />
+      <TransactionsTable />
+    </main>
+  );
 }
